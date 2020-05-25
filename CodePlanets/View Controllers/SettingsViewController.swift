@@ -23,9 +23,9 @@ class SettingsViewController: UIViewController {
     // This init method is required, but since we're not going to use it
     // (mostly used by storyboard), we'll warn others not to use it by adding
     // the fatalError call (which intentionally crashes the app).
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) is not supported")
-    }
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) is not supported")
+//    }
     
     // MARK: - View Lifecycle
     
