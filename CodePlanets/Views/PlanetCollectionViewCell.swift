@@ -12,8 +12,8 @@ class PlanetCollectionViewCell: UICollectionViewCell {
     
     static let reuseIdentifier = "PlanetCell"
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    private var imageView = UIImageView()
+    private var nameLabel = UILabel()
     
     var planet: Planet? {
         didSet {
@@ -22,7 +22,11 @@ class PlanetCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Initialization
-    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpSubviews()
+    }
+
     // This init method is required, but since we're not going to use it
     // (mostly used by storyboard), we'll warn others not to use it by adding
     // the fatalError call (which intentionally crashes the app).
@@ -41,15 +45,32 @@ class PlanetCollectionViewCell: UICollectionViewCell {
     private func setUpSubviews() {
         // Image View
         // 1. Create/configure
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         
         // 2. Add to view hierarchy
+        self.addSubview(imageView)
         
         // 3. Create/activate constraints
         
         // Label
         // 1. Create/configure
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.textAlignment = .center
         
         // 2. Add to view hierarchy
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1, constant: 0),
+            
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2)
+        ])
+        
+        
         
         // 3. Create/activate constraints
         
