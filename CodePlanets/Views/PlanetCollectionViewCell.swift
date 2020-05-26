@@ -59,6 +59,10 @@ class PlanetCollectionViewCell: UICollectionViewCell {
         nameLabel.textAlignment = .center
         
         // 2. Add to view hierarchy
+        addSubview(nameLabel)
+        
+        
+        // 3. Create/activate constraints
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
@@ -69,10 +73,6 @@ class PlanetCollectionViewCell: UICollectionViewCell {
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2)
         ])
-        
-        
-        
-        // 3. Create/activate constraints
         
     }
 }
